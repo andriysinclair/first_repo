@@ -31,34 +31,9 @@ household_df = individual_df.groupby("household_id").agg(
     nr_female=("female", list),
     mean_income=("income", "mean"),
     total_income=("income", "sum"),
-    main_earner_female=("female_income", list)
+    main_earner_female=("female_income", list)  # collects a list of female_income tuples for each household
 
 )
-
-# function to count the number of children
-def nr_children(x):
-    count = len([i for i in x if i<18])
-    return count
-
-# function to count the number of females
-def nr_female(x):
-    count = len([i for i in x if i==True])
-    return count
-
-def main_earner_female(x):
-    female_income = x[0]
-    for tup in x:
-        if tup[0] == True and tup[1] > female_income[1]:
-            female_income = tup
-    if female_income[0] == True:
-        return "yes"
-    else:
-        return "no"
-
-# applying functions to columns
-household_df["nr_children"] = household_df["nr_children"].apply(nr_children)
-household_df["nr_female"] = household_df["nr_female"].apply(nr_female)
-household_df["main_earner_female"] = household_df["main_earner_female"].apply(main_earner_female)
 
 
 
