@@ -35,6 +35,9 @@ household_df = individual_df.groupby("household_id").agg(
 
 )
 
-
+# function to count the number of children
+def nr_children(x):
+    count = len([i for i in x if i<18])
+    return count
 
 print(household_df)
