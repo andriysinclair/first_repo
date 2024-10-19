@@ -40,4 +40,9 @@ def nr_children(x):
     count = len([i for i in x if i<18])
     return count
 
+# function to count the number of females
+def nr_female(x):
+    count = len([i for i in x if i==True])
+    return count
+
 print(household_df)
