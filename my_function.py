@@ -21,4 +21,4 @@ cj_function()
 
 
 def tomas_function():
-    print("Tomas has added a function")
+    print("Tomas has added a new fnction")
