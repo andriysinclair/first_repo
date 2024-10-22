@@ -18,4 +18,4 @@ cj_function()
 
 
 def tomas_function():
-    print("Tomas has added a new fnction")
+    print("Toms haz aadded a new fnction")
