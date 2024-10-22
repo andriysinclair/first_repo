@@ -15,3 +15,11 @@ def cj_function():
 		else:
 			break
 cj_function()
+
+
+def tomas_function():
+    print("Tomas has added a function")
+
+def rachel_function():
+	print("Racehl has added a function")
+
