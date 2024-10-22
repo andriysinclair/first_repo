@@ -18,3 +18,7 @@ def cj_function():
 			break
 cj_function()
 >>>>>>> 5cfcc49be30b86ac270c60369174351d5eae5e08
+
+
+def tomas_function():
+    print("Tomas has added a function")
