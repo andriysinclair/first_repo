@@ -60,4 +60,5 @@ household_df["nr_children"] = household_df["nr_children"].apply(nr_children)
 household_df["nr_female"] = household_df["nr_female"].apply(nr_female)
 household_df["main_earner_female"] = household_df["main_earner_female"].apply(main_earner_female)
 
+
 print(household_df)
