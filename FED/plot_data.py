@@ -21,7 +21,7 @@ def plot_country_gdp_data(country_data_dict):
                 data['gdp_per_capita'],
                 label=country,
                 marker='o')
-    plt.title('Change in the GDP of Countries over Time')
+    plt.title('Change in the GDP per capita of Countries over Time')
     plt.xlabel('Year')
     plt.ylabel('GDP per capita (USD)')
     plt.legend()
