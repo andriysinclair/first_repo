@@ -26,11 +26,18 @@ def clean_and_wrangle_gdp_data(data):
 # Load data again
 data = load_data(countries=["UK", "United States", "Brazil", "Japan", "China", "Germany", "Switzerland"],
                  indicator="NY.GDP.PCAP.PP.CD", 
-                 start_year=1995, 
-                 end_year=2024)
+                 start_year=2000, 
+                 end_year=2022)
 
 cleaned_data = clean_and_wrangle_gdp_data(data)
 
+# Rename and refine variables
+cleaned_data=cleaned_data.rename(
+    columns={'economy':'country'})
+cleaned_data=cleaned_data.loc[:,['country','gdp_per_capita','year']]
+
+# Round GDP per capita to 0 dp
+cleaned_data['gdp_per_capita']=cleaned_data['gdp_per_capita'].round(0)
 
 # Print the first five rows of the cleaned dataframe
 print(cleaned_data.head())
