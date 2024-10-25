@@ -1,5 +1,5 @@
 import pandas as pd
-from load_data import load_data
+#from load_data import load_data
 
 def clean_and_wrangle_gdp_data(data):
     # Convert economy codes to a column by resetting the index
@@ -20,24 +20,25 @@ def clean_and_wrangle_gdp_data(data):
 
     # Reset index
     data_clean = data_melt.reset_index(drop=True)
+    # Rename and refine variables
+    data_clean=data_clean.rename(
+        columns={'economy':'country'})
+    data_clean=data_clean.loc[:,['country','gdp_per_capita','year']]
+
+    # Round GDP per capita to 0 dp
+    data_clean['gdp_per_capita']=data_clean['gdp_per_capita'].round(0)
     
     return data_clean
 
 # Load data again
-data = load_data(countries=["UK", "United States", "Brazil", "Japan", "China", "Germany", "Switzerland"],
-                 indicator="NY.GDP.PCAP.PP.CD", 
-                 start_year=2000, 
-                 end_year=2022)
+#data = load_data(countries=["United Kingdom", "United States", "Brazil", "Japan", "China", "Germany", "Switzerland"],
+#                 indicator="NY.GDP.PCAP.PP.CD", 
+#                 start_year=2000, 
+#                 end_year=2022)
 
-cleaned_data = clean_and_wrangle_gdp_data(data)
+#data_clean = clean_and_wrangle_gdp_data(data)
 
-# Rename and refine variables
-cleaned_data=cleaned_data.rename(
-    columns={'economy':'country'})
-cleaned_data=cleaned_data.loc[:,['country','gdp_per_capita','year']]
 
-# Round GDP per capita to 0 dp
-cleaned_data['gdp_per_capita']=cleaned_data['gdp_per_capita'].round(0)
 
 # Print the first five rows of the cleaned dataframe
-print(cleaned_data.head())
+#print(data_clean.head())

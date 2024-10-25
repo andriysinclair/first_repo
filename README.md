@@ -26,10 +26,10 @@ This contains the function that cleans and wrangles GDP per capita data for spec
 
 * **Reset Index**: Resets the dataframe index for proper formatting
 
-* **Melt Dataframe**: Converts the wide dataframe into a long dataframe, using 'economy' as an unique id and 'Year_str' as the variable name for years
+* **Melt Dataframe**: Converts the wide dataframe into a long dataframe, using `economy` as an unique id and `Year_str` as the variable name for years
 
-* **Extract Year**: Creates a new 'year' column by converting the 'Year_str' values from strings to integers
+* **Extract Year**: Creates a new `year` column by converting the `Year_str` values from strings to integers
 
-* **Convert GDP Values**: Ensures that the 'gdp_per_capita' values are numeric
+* **Convert GDP Values**: Ensures that the `gdp_per_capita` values are numeric
 
 * **Reset Index Again**: Resets the index of the cleaned dataframe.
