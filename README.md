@@ -19,3 +19,17 @@ This contains the function:
 * **end_year**: intiger for end year of the data to extract
 
 The function returns a data. If there are any years for which there is no data for all countries that year will be omitted.
+
+### clean_data.py
+
+This contains the function that cleans and wrangles GDP per capita data for specified economies:
+
+* **Reset Index**: Resets the dataframe index for proper formatting
+
+* **Melt Dataframe**: Converts the wide dataframe into a long dataframe, using 'economy' as an unique id and 'Year_str' as the variable name for years
+
+* **Extract Year**: Creates a new 'year' column by converting the 'Year_str' values from strings to integers
+
+* **Convert GDP Values**: Ensures that the 'gdp_per_capita' values are numeric
+
+* **Reset Index Again**: Resets the index of the cleaned dataframe.
