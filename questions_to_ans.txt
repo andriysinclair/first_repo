@@ -1,0 +1,15 @@
+1.
+When you added your .gitignore to your repo to ignore .csv files, was the file indeed ignored?
+
+To check whether the .csv files are indeed ignored, we can run use the `git status` command.
+If the .csv files are listed under "Untracked files," then they are being ignored because of the .gitignore file we added.
+
+2.
+Why do we have to add `additional_dependencies` to mypy in the .pre-commit-config.yaml ?
+
+When using mypy, additional_dependencies are required for several reasons:
+    - Many libraries do not include type information by default. Without type hints, mypy has no information about what
+      types are expected for the function parameters or what types the functions return.
+    - In the .pre-commit-config.yaml, we specify which dependencies are required to ensure that mypy works correctly with
+      our project. This ensures that anyone who clones the repo and uses the pre-commit hooks will have the proper dependencies
+      installed automatically.
