@@ -1,4 +1,5 @@
 import pandas as pd
+from typing import List, Tuple
 
 pd.set_option('display.max_columns', None)  # Show all columns
 pd.set_option('display.max_colwidth', None)  # Show full content in each
@@ -39,19 +40,19 @@ household_df = individual_df.groupby("household_id").agg(
 # function to count the number of children
 
 
-def nr_children(x):
+def nr_children(x: List[int]) -> int:
     count = len([i for i in x if i < 18])
     return count
 
 # function to count the number of females
 
 
-def nr_female(x):
+def nr_female(x: List[bool]) -> int:
     count = len([i for i in x if i])
     return count
 
 
-def main_earner_female(x):
+def main_earner_female(x: List[Tuple[bool, float]]) -> str:
     female_income = x[0]   # collects the first tuple in the list
     for tup in x:  # loops through each tuple
         # if value is a female and income is higher than the first tuple

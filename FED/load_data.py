@@ -1,5 +1,6 @@
 import wbgapi as wb  # WorldBank API for Economic Data
-
+from typing import List
+import pandas as pd
 
 # Expects a list of countries to obtain country codes and query the data
 # A code for the Economic indicator can be found by using:
@@ -9,7 +10,13 @@ import wbgapi as wb  # WorldBank API for Economic Data
 # Debug helps with debugging
 
 
-def load_data(countries, indicator, start_year, end_year, debug=False):
+def load_data(
+    countries: List[str],
+    indicator: str,
+    start_year: int,
+    end_year: int,
+    debug: bool = False
+) -> pd.DataFrame:
 
     # Loops through your list of countries and obtains the country code
     country_codes_list = []
@@ -35,6 +42,9 @@ def load_data(countries, indicator, start_year, end_year, debug=False):
     relevant_data = wb.data.DataFrame(
         indicator, country_codes_list, range(
             start_year, end_year))
+
+    if not isinstance(relevant_data, pd.DataFrame):
+        raise ValueError("The data returned is not a valid DataFrame.")
 
     # Drops years where there is no values across countries, for your indicator
     relevant_data.dropna(axis=1, how="all", inplace=True)

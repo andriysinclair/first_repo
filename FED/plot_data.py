@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
 # import clean_data as cd
+from typing import Dict
+import pandas as pd
 
 # Create a function to create a dictionary with country
 # keys and GDP pc over the years as tuples
 
 
-def group_country_data(clean_data):
+def group_country_data(clean_data: pd.DataFrame) -> Dict[str, pd.DataFrame]:
     countries = clean_data['country'].unique()
 
     country_data_dict = {}
@@ -18,7 +20,7 @@ def group_country_data(clean_data):
 
 
 # Create a function to plot the GDP of countries over time
-def plot_country_gdp_data(country_data_dict):
+def plot_country_gdp_data(country_data_dict: Dict[str, pd.DataFrame]) -> None:
     for country, data in country_data_dict.items():
         plt.plot(data['year'],
                  data['gdp_per_capita'],
